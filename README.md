@@ -1,5 +1,5 @@
 ## rule-executer
-Generic rule executer
+Generic rule executer using HTTP
 
 ## testing
 To test a rule in the executer will be a two-step process. Firstly, pack your rule's code to a library on your machine, then install the Rule in the executor. 
