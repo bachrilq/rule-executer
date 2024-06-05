@@ -57,7 +57,7 @@ const databaseManagerConfig = {
 
 let databaseManager: DatabaseManagerInstance<typeof databaseManagerConfig>;
 const logContext = 'startup';
-console.log("testing-working after logContext run");
+console.log(`testing-working after logContext run`);
 const runServer = async (): Promise<void> => {
   server = new StartupFactory();
   if (config.nodeEnv !== 'test') {
@@ -68,6 +68,7 @@ const runServer = async (): Promise<void> => {
         logContext,
         config.functionName,
       );
+      console.log("Connecting to nats server...");
       if (
         !(await server.init(
           execute,
@@ -81,10 +82,12 @@ const runServer = async (): Promise<void> => {
           logContext,
           config.functionName,
         );
+        console.log(`Unable to connect, retry count: ${retryCount}`);
         await new Promise((resolve) => setTimeout(resolve, 5000));
       } else {
         loggerService.log(`Connected to nats`, logContext, config.functionName);
         isConnected = true;
+        console.log(`Connected to nats`);
         break;
       }
     }
