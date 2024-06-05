@@ -57,7 +57,7 @@ const databaseManagerConfig = {
 
 let databaseManager: DatabaseManagerInstance<typeof databaseManagerConfig>;
 const logContext = 'startup';
-
+console.log("testing-working after logContext run");
 const runServer = async (): Promise<void> => {
   server = new StartupFactory();
   if (config.nodeEnv !== 'test') {
