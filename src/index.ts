@@ -142,7 +142,14 @@ process.on('unhandledRejection', (err) => {
   );
 });
 
+loggerService.log(
+        `after unhandledRejection`,
+        logContext,
+        config.functionName,
+      );
+
 if (cluster.isPrimary && config.maxCPU !== 1) {
+  console.log("after if cluster.isPrimary");
   loggerService.log(`Primary ${process.pid} is running`);
 
   // Fork workers.
