@@ -59,7 +59,9 @@ let databaseManager: DatabaseManagerInstance<typeof databaseManagerConfig>;
 const logContext = 'startup';
 console.log(`testing-working after logContext run`);
 const runServer = async (): Promise<void> => {
+  console.log(`testing-working after runServer = async run`);
   server = new StartupFactory();
+  console.log(`testing-working after server = new run`);
   if (config.nodeEnv !== 'test') {
     let isConnected = false;
     for (let retryCount = 0; retryCount < 10; retryCount++) {
