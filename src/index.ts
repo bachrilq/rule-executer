@@ -147,7 +147,7 @@ loggerService.log(
         logContext,
         config.functionName,
       );
-console.log("after unhandledRejection");
+console.log(`after unhandledRejection ${cluster.isPrimary} ${config.maxCPU}`);
 
 if (cluster.isPrimary && config.maxCPU !== 1) {
   console.log("after if cluster.isPrimary");
@@ -166,6 +166,7 @@ if (cluster.isPrimary && config.maxCPU !== 1) {
   });
 } else {
   if (process.env.NODE_ENV !== 'test') {
+    onsole.log("after else cluster.isPrimary");
     (async () => {
       try {
         await initializeDB();
