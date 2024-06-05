@@ -18,6 +18,7 @@ import { execute } from './controllers/execute';
 export const loggerService: LoggerService = new LoggerService(
   config.sidecarHost,
 );
+console.log("testing-working after loggerService run");
 export let server: IStartupService;
 
 const databaseManagerConfig = {
