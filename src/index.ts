@@ -172,6 +172,7 @@ if (cluster.isPrimary && config.maxCPU !== 1) {
         await initializeDB();
         await runServer();
       } catch (err) {
+        console.log(`after elsce cluster.isPrimary ${err}`);
         loggerService.error(
           'Error while starting services',
           err as Error,
