@@ -166,7 +166,7 @@ if (cluster.isPrimary && config.maxCPU !== 1) {
   });
 } else {
   if (process.env.NODE_ENV !== 'test') {
-    onsole.log("after else cluster.isPrimary");
+    console.log("after elsce cluster.isPrimary");
     (async () => {
       try {
         await initializeDB();
