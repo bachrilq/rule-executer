@@ -19,6 +19,11 @@ export const loggerService: LoggerService = new LoggerService(
   config.sidecarHost,
 );
 console.log("testing-working after loggerService run");
+loggerService.log(
+        `testing send`,
+        logContext,
+        config.functionName,
+      );
 export let server: IStartupService;
 
 const databaseManagerConfig = {
