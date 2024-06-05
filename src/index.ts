@@ -60,7 +60,7 @@ const databaseManagerConfig = {
     localCacheTTL: config.cacheTTL,
   },
 };
-
+console.log(`testing-working marking ${databaseManagerConfig}`);
 let databaseManager: DatabaseManagerInstance<typeof databaseManagerConfig>;
 console.log(`testing-working after logContext run`);
 console.log(`testing-working marking`);
