@@ -64,10 +64,23 @@ const databaseManagerConfig = {
 let databaseManager: DatabaseManagerInstance<typeof databaseManagerConfig>;
 console.log(`testing-working after logContext run`);
 const runServer = async (): Promise<void> => {
-  console.log(`testing-working after runServer = async run`);
+  loggerService.log(
+        `after runserver =`,
+        logContext,
+        config.functionName,
+      );
   server = new StartupFactory();
-  console.log(`testing-working after server = new run`);
+  loggerService.log(
+        `after server = new `,
+        logContext,
+        config.functionName,
+      );
   if (config.nodeEnv !== 'test') {
+      loggerService.log(
+        `inside if config.nodeEnv !==`,
+        logContext,
+        config.functionName,
+      );
     let isConnected = false;
     for (let retryCount = 0; retryCount < 10; retryCount++) {
       loggerService.log(
