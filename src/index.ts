@@ -89,27 +89,27 @@ const runServer = async (): Promise<void> => {
         config.functionName,
       );
       console.log("Connecting to nats server...");
-      if (
-        !(await server.init(
-          execute,
-          loggerService,
-          [`sub-rule-${config.ruleName}@${config.ruleVersion}`],
-          `pub-rule-${config.ruleName}@${config.ruleVersion}`,
-        ))
-      ) {
-        loggerService.warn(
-          `Unable to connect, retry count: ${retryCount}`,
-          logContext,
-          config.functionName,
-        );
-        console.log(`Unable to connect, retry count: ${retryCount}`);
-        await new Promise((resolve) => setTimeout(resolve, 5000));
-      } else {
+      // if (
+      //   !(await server.init(
+      //     execute,
+      //     loggerService,
+      //     [`sub-rule-${config.ruleName}@${config.ruleVersion}`],
+      //     `pub-rule-${config.ruleName}@${config.ruleVersion}`,
+      //   ))
+      // ) {
+      //   loggerService.warn(
+      //     `Unable to connect, retry count: ${retryCount}`,
+      //     logContext,
+      //     config.functionName,
+      //   );
+      //   console.log(`Unable to connect, retry count: ${retryCount}`);
+      //   await new Promise((resolve) => setTimeout(resolve, 5000));
+      // } else {
         loggerService.log(`Connected to nats`, logContext, config.functionName);
         isConnected = true;
         console.log(`Connected to nats`);
         break;
-      }
+      // }
     }
 
     if (!isConnected) {
