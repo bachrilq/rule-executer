@@ -94,6 +94,7 @@ const runServer = async (): Promise<void> => {
     }
   }
 };
+console.log("testing-working after runServer run");
 const numCPUs =
   os.cpus().length > config.maxCPU ? config.maxCPU + 1 : os.cpus().length + 1;
 
