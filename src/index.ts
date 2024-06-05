@@ -63,18 +63,19 @@ const databaseManagerConfig = {
 
 let databaseManager: DatabaseManagerInstance<typeof databaseManagerConfig>;
 console.log(`testing-working after logContext run`);
+console.log(`testing-working marking`);
 const runServer = async (): Promise<void> => {
   loggerService.log(
         `after runserver =`,
         logContext,
         config.functionName,
       );
-  server = new StartupFactory();
-  loggerService.log(
-        `after server = new`,
-        logContext,
-        config.functionName,
-      );
+  // server = new StartupFactory();
+  // loggerService.log(
+  //       `after server = new`,
+  //       logContext,
+  //       config.functionName,
+  //     );
 
   // if (config.nodeEnv !== 'test') {
   //   let isConnected = false;
