@@ -147,6 +147,7 @@ loggerService.log(
         logContext,
         config.functionName,
       );
+console.log("after unhandledRejection");
 
 if (cluster.isPrimary && config.maxCPU !== 1) {
   console.log("after if cluster.isPrimary");
