@@ -71,24 +71,19 @@ const runServer = async (): Promise<void> => {
       );
   server = new StartupFactory();
   loggerService.log(
-        `after server = new `,
+        `after server = new`,
         logContext,
         config.functionName,
       );
-  if (config.nodeEnv !== 'test') {
-      loggerService.log(
-        `inside if config.nodeEnv !==`,
-        logContext,
-        config.functionName,
-      );
-    let isConnected = false;
-    for (let retryCount = 0; retryCount < 10; retryCount++) {
-      loggerService.log(
-        `Connecting to nats server...`,
-        logContext,
-        config.functionName,
-      );
-      console.log("Connecting to nats server...");
+
+  // if (config.nodeEnv !== 'test') {
+  //   let isConnected = false;
+  //   for (let retryCount = 0; retryCount < 10; retryCount++) {
+  //     loggerService.log(
+  //       `Connecting to nats server...`,
+  //       logContext,
+  //       config.functionName,
+  //     );
       // if (
       //   !(await server.init(
       //     execute,
@@ -105,17 +100,16 @@ const runServer = async (): Promise<void> => {
       //   console.log(`Unable to connect, retry count: ${retryCount}`);
       //   await new Promise((resolve) => setTimeout(resolve, 5000));
       // } else {
-        loggerService.log(`Connected to nats`, logContext, config.functionName);
-        isConnected = true;
-        console.log(`Connected to nats`);
-        break;
+        // loggerService.log(`Connected to nats`, logContext, config.functionName);
+        // isConnected = true;
+        // break;
       // }
-    }
+    // }
 
-    if (!isConnected) {
-      throw new Error('Unable to connect to nats after 10 retries');
-    }
-  }
+    // if (!isConnected) {
+    //   throw new Error('Unable to connect to nats after 10 retries');
+    // }
+  // }
 };
 console.log("testing-working after runServer run");
 const numCPUs =
