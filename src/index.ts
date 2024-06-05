@@ -19,6 +19,7 @@ export const loggerService: LoggerService = new LoggerService(
   config.sidecarHost,
 );
 console.log("testing-working after loggerService run");
+const logContext = 'startup';
 loggerService.log(
         `testing send`,
         logContext,
